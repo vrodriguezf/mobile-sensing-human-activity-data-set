@@ -1,5 +1,5 @@
 import numpy as np
-import daproli as dp
+#import daproli as dp
 
 import matplotlib
 matplotlib.rcParams['pdf.fonttype'] = 42
@@ -12,30 +12,30 @@ sns.set_theme()
 sns.set_color_codes()
 
 
-def plot_profile(ts_name, profile, true_cps=None, found_cps=None, show=True, score="roc_auc_score", save_path=None, font_size=26):
-    plt.clf()
-    fig, ax = plt.subplots(1, figsize=(20, 5))
+# def plot_profile(ts_name, profile, true_cps=None, found_cps=None, show=True, score="roc_auc_score", save_path=None, font_size=26):
+#     plt.clf()
+#     fig, ax = plt.subplots(1, figsize=(20, 5))
 
-    ax.plot(np.arange(profile.shape[0]), profile, color='b')
+#     ax.plot(np.arange(profile.shape[0]), profile, color='b')
 
-    ax.set_title(ts_name, fontsize=font_size)
-    ax.set_xlabel('split point  $s$', fontsize=font_size)
-    ax.set_ylabel(score, fontsize=font_size)
+#     ax.set_title(ts_name, fontsize=font_size)
+#     ax.set_xlabel('split point  $s$', fontsize=font_size)
+#     ax.set_ylabel(score, fontsize=font_size)
 
-    if true_cps is not None:
-        dp.map(lambda true_cp: ax.axvline(x=true_cp, linewidth=2, color='r', label='True Change Point'), true_cps)
+#     if true_cps is not None:
+#         dp.map(lambda true_cp: ax.axvline(x=true_cp, linewidth=2, color='r', label='True Change Point'), true_cps)
 
-    if found_cps is not None:
-        dp.map(lambda found_cp: ax.axvline(x=found_cp, linewidth=2, color='g', label='Found Change Point'), found_cps)
+#     if found_cps is not None:
+#         dp.map(lambda found_cp: ax.axvline(x=found_cp, linewidth=2, color='g', label='Found Change Point'), found_cps)
 
-    if true_cps is not None or found_cps is not None:
-        plt.legend(prop={'size': font_size})
+#     if true_cps is not None or found_cps is not None:
+#         plt.legend(prop={'size': font_size})
 
-    if show is True:
-        ax.show()
+#     if show is True:
+#         ax.show()
 
-    if save_path is not None:
-        plt.savefig(save_path, bbox_inches="tight")
+#     if save_path is not None:
+#         plt.savefig(save_path, bbox_inches="tight")
 
 
 def plot_ts(ts_name, ts, true_cps=None, show=True, save_path=None, font_size=26):
