@@ -87,10 +87,12 @@ def plot_profile_with_ts(ts_name, ts, profile, true_cps=None, found_cps=None, sh
 
     for ax in (ax1, ax2):
         for tick in ax.xaxis.get_major_ticks():
-            tick.label.set_fontsize(font_size)
+            tick.label1.set_fontsize(font_size)
+            tick.label2.set_fontsize(font_size)
 
         for tick in ax.yaxis.get_major_ticks():
-            tick.label.set_fontsize(font_size)
+            tick.label1.set_fontsize(font_size)
+            tick.label2.set_fontsize(font_size)
 
     if true_cps is not None:
         for idx, true_cp in enumerate(true_cps):
